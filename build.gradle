@@ -31,19 +31,19 @@ configure(allprojects){
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
     }
     dependencies {
-        testCompile group: 'junit', name: 'junit', version: '4.11'
-        compile 'org.codehaus.groovy:groovy-all:2.4.1'
-        testCompile "org.spockframework:spock-core:1.1-groovy-2.4"
-        testCompile( 'com.athaydes:spock-reports:1.4.0' ) {
+        testImplementation group: 'junit', name: 'junit', version: '4.11'
+        implementation 'org.codehaus.groovy:groovy-all:2.4.1'
+        testImplementation "org.spockframework:spock-core:1.1-groovy-2.4"
+        testImplementation( 'com.athaydes:spock-reports:1.4.0' ) {
             transitive = false // this avoids affecting your version of Groovy/Spock
         }
-        testCompile "cglib:cglib-nodep:3.1"
+        testImplementation "cglib:cglib-nodep:3.1"
 
-        compile ("ch.qos.logback:logback-classic:${logbackVersion}")
-        compile ("ch.qos.logback:logback-core:${logbackVersion}")
-        compile ("org.slf4j:slf4j-api:${slf4jVersion}")
-        compile "org.apache.logging.log4j:log4j-api:2.8.2"
-        compile "org.apache.logging.log4j:log4j-to-slf4j:2.8.2"
+        implementation ("ch.qos.logback:logback-classic:${logbackVersion}")
+        implementation ("ch.qos.logback:logback-core:${logbackVersion}")
+        implementation ("org.slf4j:slf4j-api:${slf4jVersion}")
+        implementation "org.apache.logging.log4j:log4j-api:2.8.2"
+        implementation "org.apache.logging.log4j:log4j-to-slf4j:2.8.2"
     }
     configurations {
         // replaced with jcl-over-slf4j

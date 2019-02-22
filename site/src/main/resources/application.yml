@@ -2,11 +2,11 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:mysql://10.0.75.1:3306/isa
+    url: jdbc:mysql://192.168.2.1:3306/isa
     username: root
-    password: Huajl333
-    driverClassName: com.mysql.jdbc.Driver
+    password: isa@sql.com
+    drive-class-name: com.mysql.jdbc.Driver
 
 mybatis:
-  typeAliasesPackage: com.isa.lucky.pet.dao
-  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.isa.lucky.pet.dao
+  mapper-locations: classpath:mapper/*Mapper.xml

@@ -1,4 +1,6 @@
 def springBootVersion = '2.0.1.RELEASE'
 
 dependencies {
+
+    compile "org.springframework.boot:spring-boot-starter-data-redis:${springBootVersion}"
 }

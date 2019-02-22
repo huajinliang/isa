@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.isa.lucky.pet.dao.mapper.CategoryMapper">
+    <resultMap id="CategoryMap" type="com.isa.lucky.pet.dao.domain.Category">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="url" jdbcType="VARCHAR" property="url" />
+        <result column="order" jdbcType="INTEGER" property="order" />
+        <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+        <result column="type" jdbcType="INTEGER" property="type" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    </resultMap>
+
+    <sql id="sql_column" >
+        id, name, url, order, parent_id, type, update_time, add_time
+    </sql>
+
+    <select id="getTopCategoryList" resultMap="CategoryMap">
+        SELECT
+        <include refid="sql_column"/>
+        FROM category
+        WHERE parent_id = 0
+        ORDER BY order
+    </select>
+
+    <select id="getSecondCategoryList" resultMap="CategoryMap">
+        SELECT
+        <include refid="sql_column"/>
+        FROM category
+        WHERE parent_id = #{parentId}
+        ORDER BY order
+    </select>
+
+    <insert id="insertCategory" parameterType="com.isa.lucky.pet.dao.domain.Category">
+        INSERT INTO
+        category(name, url, order, parent_id, type, add_time)
+        VALUES(#{name}, #{url}, #{order}, #{parentId}, #{type}, now())
+    </insert>
+
+    <update id="updateCategory" parameterType="com.isa.lucky.pet.dao.domain.Category">
+        UPDATE category
+        SET name = #{name}, url = #{url}, order = #{order}, parent_id = #{parentId}, type = #{type}
+        WHERE id = #{id}
+    </update>
+</mapper>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.isa.lucky.pet.dao.mapper.ProductMapper">
+    <resultMap id="ProductMap" type="com.isa.lucky.pet.dao.domain.Product">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="img_url" jdbcType="VARCHAR" property="imgUrl" />
+        <result column="order" jdbcType="INTEGER" property="order" />
+        <result column="online" jdbcType="INTEGER" property="online" />
+        <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    </resultMap>
+
+    <sql id="sql_column" >
+        id, name, img_url, order, online, category_id, update_time, add_time
+    </sql>
+
+    <select id="getProductList" resultMap="ProductMap">
+        SELECT
+        <include refid="sql_column"/>
+        FROM product
+        WHERE 1=1
+        <if test="online != null and online > 0">
+            AND online = #{online}
+        </if>
+        <if test="categoryId != null and categoryId > 0">
+            AND category_id = #{categoryId}
+        </if>
+        <if test="name != null">
+            AND name like #{name}
+        </if>
+        ORDER BY order
+    </select>
+
+    <select id="getProductDetail" resultMap="ProductMap">
+        SELECT
+        <include refid="sql_column"/>
+        FROM product
+        WHERE id = #{id}
+    </select>
+
+    <insert id="insertProduct" parameterType="com.isa.lucky.pet.dao.domain.Product">
+        INSERT INTO
+        category(name, img_url, order, online, category_id, add_time)
+        VALUES(#{name}, #{imgUrl}, #{order}, #{online}, #{categoryId}, now())
+    </insert>
+
+    <update id="changeProduct" parameterType="com.isa.lucky.pet.dao.domain.Product">
+        UPDATE category
+        SET name = #{name}, img_url = #{imgUrl}, order = #{order}, online = #{online}, category_id = #{categoryId}
+        WHERE id = #{id}
+    </update>
+</mapper>

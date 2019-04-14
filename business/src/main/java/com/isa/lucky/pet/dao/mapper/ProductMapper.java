@@ -5,10 +5,10 @@ package com.isa.lucky.pet.dao.mapper;
 
 import java.util.List;
 
-import com.isa.lucky.pet.dao.domain.Category;
-import com.isa.lucky.pet.dao.domain.Product;
 
-import io.lettuce.core.dynamic.annotation.Param;
+import org.apache.ibatis.annotations.Param;
+
+import com.isa.lucky.pet.dao.domain.Product;
 
 /**
  * product
@@ -18,7 +18,9 @@ import io.lettuce.core.dynamic.annotation.Param;
  */
 public interface ProductMapper {
 
-    List<Product> getProductList(@Param("online") int online, @Param("name") String name, @Param("categoryId") int categoryId);
+    List<Product> getProductList(@Param("online") int online, @Param("categoryId") int categoryId);
+
+    List<Product> getFeaturedProductList();
 
     Product getProductDetail(@Param("id") int id);
 

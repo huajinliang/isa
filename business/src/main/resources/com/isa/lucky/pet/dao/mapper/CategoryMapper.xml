@@ -8,23 +8,37 @@
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="name" jdbcType="VARCHAR" property="name" />
         <result column="url" jdbcType="VARCHAR" property="url" />
-        <result column="order" jdbcType="INTEGER" property="order" />
+        <result column="order_num" jdbcType="INTEGER" property="order" />
         <result column="parent_id" jdbcType="INTEGER" property="parentId" />
         <result column="type" jdbcType="INTEGER" property="type" />
-        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-        <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+        <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
+        <result column="add_time" jdbcType="VARCHAR" property="addTime" />
     </resultMap>
 
     <sql id="sql_column" >
-        id, name, url, order, parent_id, type, update_time, add_time
+        id, name, url, order_num, parent_id, type, update_time, add_time
     </sql>
+
+    <select id="getCategory" resultMap="CategoryMap">
+        SELECT
+        <include refid="sql_column"/>
+        FROM category
+        WHERE type = 1 AND id = #{id}
+    </select>
+
+    <select id="getCategoryByUrl" resultMap="CategoryMap">
+        SELECT
+        <include refid="sql_column"/>
+        FROM category
+        WHERE type = 1 AND url = #{url}
+    </select>
 
     <select id="getTopCategoryList" resultMap="CategoryMap">
         SELECT
         <include refid="sql_column"/>
         FROM category
         WHERE parent_id = 0
-        ORDER BY order
+        ORDER BY order_num
     </select>
 
     <select id="getSecondCategoryList" resultMap="CategoryMap">
@@ -32,18 +46,18 @@
         <include refid="sql_column"/>
         FROM category
         WHERE parent_id = #{parentId}
-        ORDER BY order
+        ORDER BY order_num
     </select>
 
     <insert id="insertCategory" parameterType="com.isa.lucky.pet.dao.domain.Category">
         INSERT INTO
-        category(name, url, order, parent_id, type, add_time)
+        category(name, url, order_num, parent_id, type, add_time)
         VALUES(#{name}, #{url}, #{order}, #{parentId}, #{type}, now())
     </insert>
 
     <update id="updateCategory" parameterType="com.isa.lucky.pet.dao.domain.Category">
         UPDATE category
-        SET name = #{name}, url = #{url}, order = #{order}, parent_id = #{parentId}, type = #{type}
+        SET name = #{name}, url = #{url}, order_num = #{order}, parent_id = #{parentId}, type = #{type}
         WHERE id = #{id}
     </update>
 </mapper>

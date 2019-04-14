@@ -5,9 +5,9 @@ package com.isa.lucky.pet.dao.mapper;
 
 import java.util.List;
 
-import com.isa.lucky.pet.dao.domain.ProductDetail;
+import org.apache.ibatis.annotations.Param;
 
-import io.lettuce.core.dynamic.annotation.Param;
+import com.isa.lucky.pet.dao.domain.ProductDetail;
 
 /**
  * product detail

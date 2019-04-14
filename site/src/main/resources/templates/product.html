@@ -1,0 +1,102 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="common::header"></head>
+
+<body>
+<div id="container" class="hfeed">
+
+    <div th:include="common::category" class="main-nav"></div>
+
+    <div style="max-width: 1500px;" class="ml-slider-3-10-0 metaslider metaslider-flex metaslider-38 ml-slider">
+
+        <div id="metaslider_container_38">
+            <div id="metaslider_38" class="flexslider">
+                <ul class="slides">
+                    <li th:each="banner : ${banners}" style="display: block; width: 100%;"
+                        th:class="${'ms-image slide-'+banner.id}">
+                        <img th:src="@{${banner.imgUrl}}" height="520" width="1500" alt=""
+                             th:class="${'slider-38 slide-'+banner.id}"/>
+                        <div th:if="${not #strings.isEmpty(banner.name)}" class="caption-wrap">
+                            <div class="caption"><span th:text="${banner.name}" class="caption"></span><br></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="product type-product status-publish has-post-thumbnail product_cat-beds product_cat-pendleton first instock shipping-taxable purchasable product-type-variable has-default-attributes">
+
+        <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images">
+            <figure class="woocommerce-product-gallery__wrapper">
+                <div class="woocommerce-product-gallery__image">
+                    <a><img width="300"
+                            height="300"
+                            th:src="${product.imgUrl}"
+                            class="wp-post-image"
+                            sizes="(max-width: 300px) 100vw, 300px"></a>
+                </div>
+            </figure>
+        </div>
+
+        <div class="summary entry-summary">
+
+            <h1 class="product_title entry-title" th:text="${product.name}"></h1>
+            <div class="woocommerce-product-details__short-description">
+                <ul>
+                    <li th:each="pd : ${product.detail}" th:text="${pd.desc}"></li>
+                </ul>
+            </div>
+        </div><!-- .summary -->
+
+        <div class="woocommerce-tabs wc-tabs-wrapper">
+            <ul class="tabs wc-tabs" role="tablist">
+                <li class="description_tab active" id="tab-title-description" role="tab"
+                    aria-controls="tab-description">
+                    <a href="#tab-description">Description</a>
+                </li>
+            </ul>
+            <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab"
+                 id="tab-description" role="tabpanel" aria-labelledby="tab-title-description" style="display: block;">
+
+                <h2>Description</h2>
+
+                <p th:text="${product.desc}"></p>
+            </div>
+        </div>
+
+
+        <section class="related products">
+
+            <h2>Related products</h2>
+
+            <ul class="products columns-3">
+
+
+                <li th:each="p : ${relatedP}"
+                        class="post-5489 product type-product status-publish has-post-thumbnail product_cat-apparel product_cat-pendleton first instock shipping-taxable purchasable product-type-variable has-default-attributes">
+                    <a th:href="@{'http://isaluckypet.com/product/detail/'+ p.id}"
+                       class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                        <img width="150" height="150"
+                             th:src="${p.imgUrl}"
+                             class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                             sizes="(max-width: 150px) 100vw, 150px">
+                    </a>
+                    <div class="product_wrapper">
+                        <div class="prod_wrap_left">
+                            <h2 class="woocommerce-loop-product__title" th:text="${p.name}"></h2></div>
+                        </div>
+                </li>
+
+            </ul>
+
+        </section>
+
+
+    </div>
+</div>
+</body>
+</html>

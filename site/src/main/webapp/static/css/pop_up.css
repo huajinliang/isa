@@ -1,0 +1,90 @@
+@CHARSET "UTF-8";
+
+
+body { }
+
+/* Styling the registration form Popup Window */
+.top {
+	padding-right: 20px;
+	background: #261F41;
+	text-align: right;
+}
+.error-msg {
+	color: red;
+	margin-left: 8px;
+	margin-top: 10px;
+	display: inline-block;
+}
+.success-msg {
+	color: green;
+	margin-left: 8px;
+	margin-top: 10px;
+	display: inline-block;
+}
+.loading-img {
+	margin-left: 8px;
+	margin-top: 8px;
+	vertical-align: middle;
+	width: 30px;
+}
+.total {
+	display: none;
+}
+.ced_hpul_login_link{
+	margin-left: 10px;
+}
+
+#ced_hpul_guest_registration_form td {
+	font-size: 18px;
+}
+#ced_hpul_guest_registration_form caption {
+	font-size: 20px;
+	padding: 6px;
+}
+.hpul_thickbox_window .tb-close-icon {
+	background-color: #9faff1;
+	color: #ffffff !important;
+}
+.hpul_thickbox_window {
+	left: 0!important;
+	margin: 0 auto !important;
+	position: fixed;
+	right: 0;
+	text-align: left;
+	top: 50%;
+	transform: translateY(-50%);
+	border: 5px solid #150e2d;
+	height: auto!important;
+}
+.hpul_thickbox_window #TB_ajaxContent {
+    height: auto !important;
+}
+#ced_hpul_guest_registration_form caption,
+#ced_hpul_login_form caption {
+  text-align: center;
+}
+
+@media only screen and (max-width: 992px) and (min-width: 768px){
+	.hpul_thickbox_window #TB_ajaxContent {
+		max-width: 689px !important;
+	}
+	.thickbox-loading {
+		width: 700px !important;
+	}
+}
+
+@media only screen and (max-width: 767px){
+	.hpul_thickbox_window #TB_ajaxContent {
+		max-width: 260px !important;
+	}
+	.thickbox-loading {
+		width: 280px !important;
+	}
+	#ced_hpul_guest_registration_form td {
+	    font-size: 13px;
+	    padding: 5px;
+	}
+	#ced_hpul_guest_registration_form caption {
+		font-size: 16px;
+	}
+}

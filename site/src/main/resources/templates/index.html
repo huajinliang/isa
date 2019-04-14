@@ -1,0 +1,204 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="common::header"></head>
+
+<body class="home page-template page-template-full-width-page page-template-full-width-page-php page page-id-17 woocommerce-no-js default-layout">
+
+
+<div id="container" class="hfeed">
+
+    <div th:include="common::category" class="main-nav"></div>
+
+    <div style="max-width: 1500px;" class="ml-slider-3-10-0 metaslider metaslider-flex metaslider-38 ml-slider">
+
+        <div id="metaslider_container_38">
+            <div id="metaslider_38" class="flexslider">
+                <ul class="slides">
+                    <li th:each="banner : ${banners}" style="display: block; width: 100%;"
+                        th:class="${'ms-image slide-'+banner.id}">
+                        <img th:src="@{${banner.imgUrl}}" height="520" width="1500" alt=""
+                             th:class="${'slider-38 slide-'+banner.id}"/>
+                        <div th:if="${not #strings.isEmpty(banner.name)}" class="caption-wrap">
+                            <div class="caption"><span th:text="${banner.name}" class="caption"></span><br></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="wrapper" class="clearfix">
+
+
+        <div id="content-outer">
+            <div id="content-full" class="grid col-940">
+
+
+                <div id="post-17" class="post-17 page type-page status-publish hentry">
+
+                    <h1 class="entry-title post-title">Welcome to Isa Lucky Pet Company</h1>
+
+                    <div class="post-entry">
+                        <p>The vision of commitment and passion are the driving forces that ultimately became ISA.</p>
+                        <div>
+                            <p>Consisted by young ladies, ISA aim to provide fun & relaxation for pets worldwide.</p>
+                            <p>Being a trader,ISA keep sourcing outstanding quality pet products with price advantage in China's demestic market.</p>
+                            <p>We cooperate with reputable manufaturers,who can guarantee stable delivery time and quality.</p>
+                            <p>Product portfolio ranging from Puppy Training Pads,Dog Beds,Dog Toys,Collars,Harnesses & Leashes,etc.</p>
+                            <p>More products will be introduced soon.</p>
+                            <p>&nbsp;</p>
+                        </div>
+                        <h2>Featured Products</h2>
+
+                        <div class="wcps-container wcps-container-4911  " style="background-image:url()">
+                            <div class="wcps-ribbon wcps-ribbon-none" style="no-repeat:scroll 0 0 rgba(0, 0, 0, 0);)"></div>
+                            <div id="wcps-4911" class="owl-carousel ">
+                                <div class="wcps-items skin flat" th:each="product : ${featured}">
+                                    <div class="layer-media">
+                                        <div class="wcps-items-thumb">
+                                            <a th:href="@{'/product/detail/'+${product.id}}">
+                                                <img th:src="@{${product.imgUrl}}"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="layer-content">
+                                        <div class="wcps-items-title">
+                                            <a style="color:#626262;font-size:14px"
+                                               th:href="@{'/product/detail/'+${product.id}}"
+                                                th:text="${product.name}">
+                                            </a>
+                                        </div>
+                                        <div class="wcps-items-tag"></div>
+                                        <div class="wcps-items-sku">M0PP1001-ROC</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                        jQuery(document).ready(function($)
+                        {
+                            $("#wcps-4911").owlCarousel({
+
+                                items : 5,
+
+
+                                responsiveClass:true,
+
+                                responsive:{
+                                    0:{
+                                        items:1,
+
+                                    },
+                                    600:{
+                                        items:2,
+
+                                    },
+
+                                    900:{
+                                        items:2,
+
+                                    },
+
+                                    1000:{
+                                        items:5,
+
+
+                                    }
+                                },
+
+                                loop: true,rewind: true,center: false,rtl: false,animateOut: "fadeOut",animateIn: "flipInX",autoplay: true,autoplayHoverPause: true,autoplaySpeed: 500,autoplayTimeout: 500,
+                                navText : ["",""],
+                                nav: true,dots: true,navSpeed: 1000,dotsSpeed: 1000,touchDrag : true,mouseDrag  : true,});
+
+                        });jQuery(document).ready(function($)
+                        {
+                            $(".owl-nav").addClass("topright");
+                        })
+
+
+                        </script>
+                        <p>&nbsp;</p>
+                    </div>
+                    <!-- end of .post-entry -->
+
+
+                    <div class="post-edit"></div>
+                </div><!-- end of #post-17 -->
+
+
+            </div><!-- end of #content-full -->
+        </div>
+    </div><!-- end of #wrapper -->
+</div><!-- end of #container -->
+
+<div th:include="common::footer" id="footer-parent"></div>
+
+<script type="text/javascript">
+    var c = document.body.className;
+    c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+    document.body.className = c;
+
+</script>
+<link rel='stylesheet' th:href='@{/static/css/ml-slider/flexslider.css}' type='text/css' media='all' property='stylesheet'/>
+<link rel='stylesheet' th:href='@{/static/css/wcps-container.css}' type='text/css' media='all' property='stylesheet'/>
+<link rel='stylesheet' th:href='@{/static/css/ml-slider/public.css}' type='text/css' media='all' property='stylesheet'/>
+
+<script type='text/javascript' th:src='@{/static/js/contact-form-7/scripts.js}'></script>
+
+<script type='text/javascript' th:src='@{/static/js/sb-instagram.min.js}'></script>
+
+<script type='text/javascript' th:src='@{/static/js/woocommerce/add-to-cart.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/woocommerce/jquery.blockUI.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/woocommerce/js.cookie.min.js}'></script>
+
+<script type='text/javascript' th:src='@{/static/js/woocommerce/woocommerce.min.js}'></script>
+
+<script type='text/javascript' th:src='@{/static/js/woocommerce/cart-fragments.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/responsive-scripts.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/jquery/jquery.placeholder.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/jquery/jquery.flexslider.min.js}'></script>
+<script type='text/javascript'>
+    var metaslider_38 = function($) {
+        $('#metaslider_38').flexslider({
+            slideshowSpeed:3000,
+            animation:"fade",
+            controlNav:true,
+            directionNav:true,
+            pauseOnHover:true,
+            direction:"horizontal",
+            reverse:false,
+            animationSpeed:600,
+            prevText:"&lt;",
+            nextText:"&gt;",
+            fadeFirstSlide:1,
+            slideshow:true
+        });
+        $(document).trigger('metaslider/initialized', '#metaslider_38');
+    };
+    var timer_metaslider_38 = function() {
+        var slider = !window.jQuery ? window.setTimeout(timer_metaslider_38, 100) : !jQuery.isReady ? window.setTimeout(timer_metaslider_38, 1) : metaslider_38(window.jQuery);
+    };
+    timer_metaslider_38();
+
+</script>
+<script type="text/javascript">
+    jQuery(document).ready( function($) {
+        $("ul.nav-menu").not(":has(li)").hide().closest('div').hide();
+    });
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+</body>
+</html>

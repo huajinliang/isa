@@ -6,15 +6,15 @@
 <mapper namespace="com.isa.lucky.pet.dao.mapper.ProductDetailMapper">
     <resultMap id="ProductDetailMap" type="com.isa.lucky.pet.dao.domain.ProductDetail">
         <id column="id" jdbcType="INTEGER" property="id" />
-        <result column="desc" jdbcType="VARCHAR" property="desc" />
-        <result column="order" jdbcType="INTEGER" property="order" />
+        <result column="description" jdbcType="VARCHAR" property="desc" />
+        <result column="order_num" jdbcType="INTEGER" property="order" />
         <result column="product_id" jdbcType="INTEGER" property="productId" />
-        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-        <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+        <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
+        <result column="add_time" jdbcType="VARCHAR" property="addTime" />
     </resultMap>
 
     <sql id="sql_column" >
-        id, desc, order, product_id, update_time, add_time
+        id, description, order_num, product_id, update_time, add_time
     </sql>
 
     <select id="getProductDetailList" resultMap="ProductDetailMap">
@@ -22,18 +22,18 @@
         <include refid="sql_column"/>
         FROM product_detail
         WHERE product_id = #{productId}
-        ORDER BY order
+        ORDER BY order_num
     </select>
 
     <insert id="insertProductDetail" parameterType="com.isa.lucky.pet.dao.domain.ProductDetail">
         INSERT INTO
-        product_detail(desc, order, product_id, add_time)
+        product_detail(description, order_num, product_id, add_time)
         VALUES(#{desc}, #{order}, #{productId}, now())
     </insert>
 
     <update id="changeProduct" parameterType="com.isa.lucky.pet.dao.domain.ProductDetail">
         UPDATE product_detail
-        SET desc = #{desc}, order = #{order}, product_id = #{productId}
+        SET description = #{desc}, order_num = #{order}, product_id = #{productId}
         WHERE id = #{id}
     </update>
 </mapper>

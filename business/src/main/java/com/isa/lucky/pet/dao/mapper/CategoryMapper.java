@@ -5,9 +5,10 @@ package com.isa.lucky.pet.dao.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.isa.lucky.pet.dao.domain.Category;
 
-import io.lettuce.core.dynamic.annotation.Param;
 
 /**
  * category
@@ -24,4 +25,8 @@ public interface CategoryMapper {
     void insertCategory(Category category);
 
     void updateCategory(Category category);
+
+    Category getCategoryByUrl(@Param("url") String url);
+
+    Category getCategory(@Param("id") int id);
 }

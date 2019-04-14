@@ -1,0 +1,321 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="header">
+
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title th:text="${title+' - Isa Lucky Pet Company'}"></title>
+
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+
+    <meta name="description" content=""/>
+    <link rel="canonical" href="http://isaluckypet.com/"/>
+    <meta property="og:locale" content="en_CN"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" th:content="${title+'- Isa Lucky Pet Company'}"/>
+    <meta property="og:description" content=""/>
+    <meta property="og:url" content="https://isaluckypet.com/"/>
+    <meta property="og:site_name" content="Isa Lucky Pet Company"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:description" content=""/>
+    <meta name="twitter:title" th:content="${title+'- Isa Lucky Pet Company'}"/>
+
+    <meta name="twitter:image" content=""/>
+
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+
+    </style>
+    <link rel='stylesheet' th:href='@{/static/css/style-maintenance.css}' type='text/css' media='all'/>
+    <link rel='stylesheet' th:href='@{/static/css/contact-form-7.css}' type='text/css' media='all'/>
+    <link rel='stylesheet' th:href='@{/static/css/pop_up.css}' type='text/css' media='all'/>
+    <link rel='stylesheet' th:href='@{/static/css/sb-instagram.min.css}' type='text/css' media='all'/>
+    <link rel='stylesheet' th:href='@{/static/css/fonts/font-awesome.min.css}' type='text/css' media='all'/>
+    <link rel='stylesheet' th:href='@{/static/css/slick.css}' type='text/css' media='all'/>
+    <link rel='stylesheet' th:href='@{/static/css/spfont.css}' type='text/css' media='all'/>
+    <link rel='stylesheet' th:href='@{/static/css/style.css}' type='text/css' media='all'/>
+    <link rel='stylesheet' th:href='@{/static/css/style-deprecated.css}' type='text/css' media='all'/>
+    <link rel='stylesheet' th:href='@{/static/css/custom-style.css}' type='text/css' media='all'/>
+    <link rel='stylesheet' th:href='@{/static/css/magnific-popup.css}' type='text/css' media='all'/>
+    <link rel='stylesheet' th:href='@{/static/css/product/style.css}' type='text/css' media='all'/>
+    <link rel='stylesheet' th:href='@{/static/css/product/style.themes.css}' type='text/css' media='all'/>
+    <link rel='stylesheet' th:href='@{/static/css/product/owl.carousel.css}' type='text/css' media='all'/>
+    <link rel='stylesheet' th:href='@{/static/css/woocommerce/woocommerce-layout.css}' type='text/css' media='all'/>
+    <link rel='stylesheet' th:href='@{/static/css/woocommerce/woocommerce-smallscreen.css}' type='text/css'
+          media='only screen and (max-width: 768px)'/>
+    <link rel='stylesheet' th:href='@{/static/css/woocommerce/woocommerce.css}' type='text/css' media='all'/>
+    <style id='woocommerce-inline-inline-css' type='text/css'>
+        .woocommerce form .form-row .required { visibility: visible; }
+    </style>
+    <link rel='stylesheet' th:href='@{/static/css/theme/style.css}' type='text/css' media='all'/>
+    <link rel='stylesheet' th:href='@{/static/css/theme/responsive.css}' type='text/css' media='all'/>
+    <link rel='stylesheet' th:href='@{/static/css/theme/responsive-child-style.css?v=1.0}' type='text/css' media='all'/>
+    <script type='text/javascript' th:src='@{/static/js/jquery/jquery.js}'></script>
+    <script type='text/javascript' th:src='@{/static/js/jquery/jquery-migrate.min.js}'></script>
+    <script type='text/javascript' th:src='@{/static/js/slick.min.js}'></script>
+    <script type='text/javascript' th:src='@{/static/js/caroufredsel/jquery.transit.min.js}'></script>
+    <script type='text/javascript' th:src='@{/static/js/caroufredsel/jquery.lazyload.min.js}'></script>
+    <script type='text/javascript' th:src='@{/static/js/magnific-popup/jquery.magnific-popup.min.js}'></script>
+    <script type='text/javascript' th:src='@{/static/js/caroufredsel/jquery.carouFredSel-6.2.1-packed.js}'></script>
+    <script type='text/javascript' th:src='@{/static/js/caroufredsel/jquery.touchSwipe.min.js}'></script>
+
+    <script type='text/javascript' th:src='@{/static/js/scripts.js}'></script>
+    <script type='text/javascript' th:src='@{/static/js/owl.carousel.min.js}'></script>
+    <script type='text/javascript' th:src='@{/static/js/responsive-modernizr.min.js}'></script>
+
+    <link rel='shortlink' href=''/>
+    <script>
+        jQuery(document).ready(function(){
+            var copyright_text = "Copyright © 2019 Isa Lucky Pet Company";
+            var cyberchimps_link = "";
+            var siteurl = "https://isaluckypet.com";
+            if(copyright_text == "")
+            {
+                jQuery(".copyright #copyright_link").text(" "+"Default copyright text");
+            }
+            else{
+                jQuery(".copyright #copyright_link").text(" "+copyright_text);
+            }
+            jQuery(".copyright #copyright_link").attr('href', siteurl);
+            if(cyberchimps_link == 1)
+            {
+                jQuery(".powered").css("display","block");
+            }
+            else{
+                jQuery(".powered").css("display","none");
+            }
+        });
+
+    </script>
+    <!-- END ExactMetrics Universal Analytics -->
+    <style type="text/css" id="wp-custom-css">
+        #container .metaslider .caption{
+            font-size: 35px !important;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div th:fragment="category">
+
+    <div id="header-wrapper">
+        <div id="header">
+            <div id="logo">
+
+                <a href="http://isaluckypet.com/"><img
+                        th:src="@{/static/uploads/logo.png}"
+                        width="296" height="186" alt="Isa Lucky Pet Company"/></a>
+
+            </div><!-- end of #logo -->
+            <div id="top-widget" class="top-widget">
+
+                <div id="text-6" class="widget_text">
+                    <div class="textwidget"><a href="https://twitter.com/isaluckypet" target="_blank"
+                                               class="twitter-icon icon"></a>
+                        <a href="https://www.facebook.com/isaluckypet" target="_blank" class="icon"></a>
+
+                        <span class="tagline">isa love you</span>
+                    </div>
+                </div>
+
+            </div><!-- end of #top-widget -->
+
+        </div><!-- end of #header -->
+    </div><!-- end of #header-wrapper -->
+
+    <ul id="menu-primary-menu" class="menu">
+            <li th:each="c : ${category}"
+                th:id="${'menu-item-'+c.id}"
+                th:class="${not #lists.isEmpty(c.categories)} ?
+                    ${'menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-'+c.id} :
+                    ${'menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-17 current_page_item menu-item-'+c.id}"
+            >
+                <a th:href="@{${c.type}==0?'/':'/product-category/'}+${c.url}" th:text="${c.name}"></a>
+                <ul th:if="${not #lists.isEmpty(c.categories)}" class="sub-menu">
+                        <li th:each="cc : ${c.categories}"
+                            th:id="${'menu-item-'+cc.id}"
+                            class="menu-item menu-item-type-post_type menu-item-object-page"
+                            th:appendclass="${'menu-item-'+cc.id}"
+                        >
+                            <a th:href="@{${cc.type}==0?'/':'/product-category/'}+${cc.url}" th:text="${cc.name}"></a>
+                        </li>
+                </ul>
+            </li>
+    </ul>
+</div>
+
+<div th:fragment="footer">
+    <div id="footer" class="clearfix">
+
+        <div id="footer-wrapper">
+            <div id="footer_widget" class="grid col-940">
+
+
+                <div id="text-4" class="grid col-300 widget_text">
+                    <div class="widget-wrapper">
+                        <div class="widget-title"><h3>Drop Ship</h3></div>
+                        <div class="textwidget">We have a very efficient drop ship program which enables us to fill all
+                            orders within 48 hours of receipt and we offer the added value of embroidered
+                            personalization if your system can capture and transmit a personalization field
+                            (personalized orders require up to five business days for fulfillment). <br></div>
+                    </div>
+                </div>
+                <div id="text-3" class="grid col-300 widget_text">
+                    <div class="widget-wrapper">
+                        <div class="widget-title"><h3>Private Labeling</h3></div>
+                        <div class="textwidget">As a prime manufacturer of pet beds and related pet convenience items we
+                            have the ability to partner with larger volume customers to develop proprietary designs.
+                            Exclusive designs are anchored by one of our key silhouettes.<br></div>
+                    </div>
+                </div>
+                <div id="text-2" class="fit grid col-300 widget_text">
+                    <div class="fit widget-wrapper">
+                        <div class="widget-title"><h3>Eco-Friendly</h3></div>
+                        <div class="textwidget">We are committed to making earth-friendly choices without sacrificing
+                            quality, style and comfort. Premium eco-products without premium prices. <br></div>
+                    </div>
+                </div>
+
+            </div><!-- end of #footer-widget -->
+
+        </div>
+        <!-- end #footer-wrapper -->
+        <div id="footer-full">
+            <!--sep-->
+            <div id="footer-wrapper">
+
+                <div class="grid col-940">
+
+                    <div class="grid col-540">
+                    </div>
+                    <!-- end of col-540 -->
+
+                    <div class="grid col-380 fit">
+                        <ul class="social-icons"></ul><!-- .social-icons -->            </div>
+                    <!-- end of col-380 fit -->
+
+                </div>
+                <!-- end of col-940 -->
+
+                <div class="grid col-300 copyright">
+
+                    <strong>EMAIL:</strong>
+                    isaluckypet@gmail.com
+                    <br>
+                    <strong>PHONE:</strong>
+                    +86 153 6616 5146
+                    <br>
+                    <strong>ADDRESS:</strong>
+                    Room 202,Building No.3,Shanyuhu Garden, No.3 Yonggu Road,Pukou District,Nanjing,China
+
+                </div>
+
+                <div class="grid col-300 scroll-top arrow"><a href="#scroll-top" title="scroll to top">&uarr;</a></div>
+
+                <div class="grid col-300 copyright" style="float:right; width:auto!important;">
+
+                    Copyright © 2019 Isa Pet Company <br>
+                </div>
+
+                <!-- end of .copyright -->
+
+
+                <div class="grid col-300 fit powered">
+                    <br>
+                    &copy; 2019<a href="https://isaluckypet.com/" title="Isa Lucky Pet Company">
+                    Isa Pet Company </a>
+                    <br>
+                </div>
+                <!-- end .powered -->
+
+
+                <!--/sep--></div>
+        </div><!--end full-->
+    </div><!-- end #footer -->
+</div><!-- end footer full-->
+
+</body>
+
+<script type="text/javascript">
+    var c = document.body.className;
+    c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+    document.body.className = c;
+
+</script>
+<link rel='stylesheet' th:href='@{/static/css/ml-slider/flexslider.css}' type='text/css' media='all' property='stylesheet'/>
+<link rel='stylesheet' th:href='@{/static/css/wcps-container.css}' type='text/css' media='all' property='stylesheet'/>
+<link rel='stylesheet' th:href='@{/static/css/ml-slider/public.css}' type='text/css' media='all' property='stylesheet'/>
+
+<script type='text/javascript' th:src='@{/static/js/contact-form-7/scripts.js}'></script>
+
+<script type='text/javascript' th:src='@{/static/js/sb-instagram.min.js}'></script>
+
+<script type='text/javascript' th:src='@{/static/js/woocommerce/add-to-cart.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/woocommerce/jquery.blockUI.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/woocommerce/js.cookie.min.js}'></script>
+
+<script type='text/javascript' th:src='@{/static/js/woocommerce/woocommerce.min.js}'></script>
+
+<script type='text/javascript' th:src='@{/static/js/woocommerce/cart-fragments.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/responsive-scripts.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/jquery/jquery.placeholder.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/jquery/jquery.flexslider.min.js}'></script>
+<script type='text/javascript'>
+    var metaslider_38 = function($) {
+        $('#metaslider_38').flexslider({
+            slideshowSpeed:3000,
+            animation:"fade",
+            controlNav:true,
+            directionNav:true,
+            pauseOnHover:true,
+            direction:"horizontal",
+            reverse:false,
+            animationSpeed:600,
+            prevText:"&lt;",
+            nextText:"&gt;",
+            fadeFirstSlide:1,
+            slideshow:true
+        });
+        $(document).trigger('metaslider/initialized', '#metaslider_38');
+    };
+    var timer_metaslider_38 = function() {
+        var slider = !window.jQuery ? window.setTimeout(timer_metaslider_38, 100) : !jQuery.isReady ? window.setTimeout(timer_metaslider_38, 1) : metaslider_38(window.jQuery);
+    };
+    timer_metaslider_38();
+
+</script>
+<script type="text/javascript">
+    jQuery(document).ready( function($) {
+        $("ul.nav-menu").not(":has(li)").hide().closest('div').hide();
+    });
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+</html>

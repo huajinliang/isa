@@ -8,32 +8,33 @@
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="name" jdbcType="VARCHAR" property="name" />
         <result column="img_url" jdbcType="VARCHAR" property="imgUrl" />
-        <result column="order" jdbcType="INTEGER" property="order" />
+        <result column="order_num" jdbcType="INTEGER" property="order" />
+        <result column="featured" jdbcType="INTEGER" property="featured" />
         <result column="online" jdbcType="INTEGER" property="online" />
         <result column="category_id" jdbcType="INTEGER" property="categoryId" />
-        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-        <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+        <result column="description" jdbcType="VARCHAR" property="desc" />
+        <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
+        <result column="add_time" jdbcType="VARCHAR" property="addTime" />
     </resultMap>
 
     <sql id="sql_column" >
-        id, name, img_url, order, online, category_id, update_time, add_time
+        id, name, img_url, order_num, featured, online, category_id, description, update_time, add_time
     </sql>
 
     <select id="getProductList" resultMap="ProductMap">
         SELECT
         <include refid="sql_column"/>
         FROM product
-        WHERE 1=1
-        <if test="online != null and online > 0">
-            AND online = #{online}
-        </if>
-        <if test="categoryId != null and categoryId > 0">
-            AND category_id = #{categoryId}
-        </if>
-        <if test="name != null">
-            AND name like #{name}
-        </if>
-        ORDER BY order
+        WHERE online = #{online} AND category_id = #{categoryId}
+        ORDER BY order_num
+    </select>
+
+    <select id="getFeaturedProductList" resultMap="ProductMap">
+        SELECT
+        <include refid="sql_column"/>
+        FROM product
+        WHERE online = 2 AND featured = 1
+        ORDER BY order_num
     </select>
 
     <select id="getProductDetail" resultMap="ProductMap">
@@ -45,13 +46,14 @@
 
     <insert id="insertProduct" parameterType="com.isa.lucky.pet.dao.domain.Product">
         INSERT INTO
-        category(name, img_url, order, online, category_id, add_time)
-        VALUES(#{name}, #{imgUrl}, #{order}, #{online}, #{categoryId}, now())
+        product(name, img_url, order_num, online, category_id,description, add_time)
+        VALUES(#{name}, #{imgUrl}, #{order}, #{online}, #{categoryId}, #{desc}, now())
     </insert>
 
     <update id="changeProduct" parameterType="com.isa.lucky.pet.dao.domain.Product">
-        UPDATE category
-        SET name = #{name}, img_url = #{imgUrl}, order = #{order}, online = #{online}, category_id = #{categoryId}
+        UPDATE product
+        SET name = #{name}, img_url = #{imgUrl}, order_num = #{order},
+        online = #{online}, category_id = #{categoryId}, description = #{desc}
         WHERE id = #{id}
     </update>
 </mapper>

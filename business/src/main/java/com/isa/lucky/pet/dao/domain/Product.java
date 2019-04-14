@@ -16,6 +16,8 @@ public class Product {
     private int categoryId;
     private int order;
     private int online;
+    private int featured;
+    private String desc;
     private String addTime;
     private String updateTime;
 
@@ -81,5 +83,21 @@ public class Product {
 
     public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public int getFeatured() {
+        return featured;
+    }
+
+    public void setFeatured(int featured) {
+        this.featured = featured;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 }

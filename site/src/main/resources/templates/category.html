@@ -1,0 +1,90 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="common::header"></head>
+
+<body class="page-template-default page page-id-3188 woocommerce-no-js default-layout">
+
+<div id="container" class="hfeed">
+
+    <div th:include="common::category" class="main-nav"></div>
+
+    <div id="wrapper" class="clearfix">
+        <div id="content" class="grid">
+
+            <div class="breadcrumb-list">
+                <span class="breadcrumb" typeof="v:Breadcrumb">
+                    <a rel="v:url" property="v:title" th:href="@{'/'}">Home</a>
+                </span>
+                <span class="chevron">&#8250;</span>
+
+                <span th:if="${cpr.topCategory} ne null" class="breadcrumb">
+                    <a rel="v:url" property="v:title" th:href="@{${cpr.topCategory.url}}" th:text="${cpr.topCategory.name}"></a>
+                </span>
+                <span th:if="${cpr.topCategory} ne null" class="chevron">&#8250;</span>
+
+                <span class="breadcrumb-current" th:text="${cpr.category.name}"></span>
+            </div>
+
+            <div id="post-3188" class="post-3188 page type-page status-publish hentry">
+                <h1 class="entry-title post-title" th:text="${cpr.category.name+' Products'}"></h1>
+                <div th:if="${cpr.products} ne null" class="post-entry">
+
+                    <div class="woocommerce columns-4">
+                        <ul class="products columns-4">
+                            <li th:each="product : ${cpr.products}" class="post-9355 product type-product status-publish has-post-thumbnail product_cat-collars-pendleton
+                             product_cat-pendleton first instock shipping-taxable purchasable product-type-variable has-default-attributes">
+                                <a th:href="@{'http://isaluckypet.com/product/detail/'}+${product.id}"
+                                   class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                    <img width="150" height="150"
+                                         th:src="@{http://isaluckypet.com/'+${product.imgUrl}}"
+                                         class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"/>
+                                    <div class="product_wrapper">
+                                        <div class="prod_wrap_left">
+                                            <h2 class="woocommerce-loop-product__title" th:text="${product.name}"></h2>
+                                        </div>
+                                    </div>
+                                </a>
+                        </ul>
+                    </div>
+                </div>
+                <!-- end of .post-entry -->
+                <div class="post-edit"></div>
+            </div><!-- end of #post-3188 -->
+        </div><!-- end of #content -->
+    </div><!-- end of #wrapper -->
+</div><!-- end of #container -->
+
+<div th:include="common::footer" id="footer-parent"></div>
+
+<script type="text/javascript">
+		var c = document.body.className;
+		c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+		document.body.className = c;
+</script>
+
+<script type='text/javascript' th:src='@{/static/js/contact-form-7/scripts.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/sb-instagram.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/woocommerce/add-to-cart.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/woocommerce/jquery.blockUI.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/woocommerce/js.cookie.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/woocommerce/woocommerce.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/woocommerce/cart-fragments.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/responsive-scripts.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/jquery/jquery.placeholder.min.js}'></script>
+<script type='text/javascript' th:src='@{/static/js/jquery/jquery.flexslider.min.js}'></script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+
+</script>
+
+</body>
+</html>

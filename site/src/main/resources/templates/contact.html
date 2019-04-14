@@ -1,0 +1,93 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="common::header"></head>
+
+<body class="page-template-default page page-id-45 woocommerce-no-js default-layout">
+
+<div id="container" class="hfeed">
+
+    <div th:include="common::category" class="main-nav"></div>
+
+
+    <div id="wrapper" class="clearfix">
+
+
+        <div id="content" class="grid col-620">
+
+
+            <div class="breadcrumb-list">
+                <span class="breadcrumb" typeof="v:Breadcrumb">
+                    <a rel="v:url" property="v:title" th:href="@{'/'}">Home</a>
+                </span>
+                <span class="chevron">&#8250;</span>
+
+                <span class="breadcrumb-current">Contact</span>
+            </div>
+            <div id="post-45" class="post-45 page type-page status-publish hentry">
+
+                <h1 class="entry-title post-title">Contact</h1>
+
+                <span th:text="${result}"></span>
+
+                <div class="post-entry">
+                    <div role="form" class="wpcf7" id="wpcf7-f6634-p45-o1" lang="en-US" dir="ltr">
+                        <div class="screen-reader-response"></div>
+                        <form action="/contact/confirm" method="post" class="wpcf7-form"
+                              novalidate="novalidate">
+                            <p><label> Your Name: (required) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="wpcf7-form-control-wrap your-name">
+                                    <input type="text" name="name"
+                                           value="" size="40" id = "name"
+                                           class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+                                           aria-required="true"
+                                           aria-invalid="false"/></span>
+                            </label></p>
+                            <p><label> Your Email: (required) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="wpcf7-form-control-wrap your-email">
+                                    <input type="email" name="mail"
+                                           value="" size="40" id = "mail"
+                                           class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                                           aria-required="true"
+                                           aria-invalid="false"/></span>
+                            </label></p>
+                            <p><label> Subject: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="wpcf7-form-control-wrap your-subject">
+                                    <input type="text"
+                                           name="subject" value=""
+                                           size="40" id = "subject"
+                                           class="wpcf7-form-control wpcf7-text"
+                                           aria-invalid="false"/></span>
+                            </label></p>
+                            <p><label> Your Message &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="wpcf7-form-control-wrap your-message">
+                                    <textarea name="message"
+                                              cols="40" rows="10" id = "message"
+                                              class="wpcf7-form-control wpcf7-textarea"
+                                              aria-invalid="false"></textarea></span>
+                            </label></p>
+                            <p><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit"/></p>
+                            <div class="wpcf7-response-output wpcf7-display-none"></div>
+                        </form>
+                    </div>
+                    <p>or</p>
+                    <p>isaluckypet@gmail.com</p>
+
+
+                </div>
+
+
+                <div class="post-edit"></div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<div th:include="common::footer" id="footer-parent"></div>
+</body>
+</html>
